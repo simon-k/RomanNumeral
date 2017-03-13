@@ -8,6 +8,10 @@ namespace RomanNumeral
 
         public RomanNumeral(int value)
         {
+           if (IsValueOutOfRange(value))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
             _value = value;
         }
 
@@ -19,6 +23,11 @@ namespace RomanNumeral
         public int ToInt()
         {
             return _value;
+        }
+
+        private bool IsValueOutOfRange(int value)
+        {
+            return (value < 1) || (value > 3999);
         }
     }
 }
