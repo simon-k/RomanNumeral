@@ -11,7 +11,11 @@ namespace RomanNumeral.Tests
         [InlineData(4000)]
         public void IntegerConstructor_ThrowsExceptionIfConstructedWithIllegalValues(int illegalValue)
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => new RomanNumeral(illegalValue));
+            var expectedMessage = "Roman Numeral must be between 1 and 3999";
+
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => new RomanNumeral(illegalValue));
+
+            Assert.Contains(expectedMessage, exception.Message);
         }
 
         [Fact]
