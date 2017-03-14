@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace RomanNumeral
 {
-    public class Converter
+    internal class Converter
     {
         private static readonly SortedList<int, string> RomanNumeralTable = new SortedList<int, string>
         {

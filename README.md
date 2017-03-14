@@ -11,5 +11,4 @@ Convetion from roman numeral to decimal is based on http://www.rapidtables.com/c
 - Validate that the input in RomanNumeral.Converter.ToRomanNumeral(int) is valid
 - Validate that the input in RomanNumeral.Converter.ToInt(string) is valid
 - Catch exception when reminder in RomanNumeral.Converter.ToRomanNumeral(int) is < 0
-- Make Converter internal
 - Extract GetHighestElement
