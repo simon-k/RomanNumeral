@@ -28,7 +28,7 @@ namespace RomanNumeral
             return _value;
         }
 
-        public string ToRomanNumeral()
+        public override string ToString()
         {
             return Converter.ToRomanNumeral(_value);
         }

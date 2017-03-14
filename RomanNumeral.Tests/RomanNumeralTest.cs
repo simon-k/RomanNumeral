@@ -35,10 +35,10 @@ namespace RomanNumeral.Tests
         [InlineData(1999, "MCMXCIX")]
         [InlineData(2444, "MMCDXLIV")]
         [InlineData(3999, "MMMCMXCIX")]
-        public void ToRomanNumeral_ConstructedWithValudInteger_ReturnsExpectedRomanNumeral(int value, string expectedRomanNumeral)
+        public void ToString_ConstructedWithValudInteger_ReturnsExpectedString(int value, string expectedRomanNumeral)
         {
             var romanNumeral = new RomanNumeral(value);
-            Assert.Equal(expectedRomanNumeral, romanNumeral.ToRomanNumeral());
+            Assert.Equal(expectedRomanNumeral, romanNumeral.ToString());
         }
 
         [Theory]
@@ -47,7 +47,7 @@ namespace RomanNumeral.Tests
         [InlineData("MCMXCIX", 1999)]
         [InlineData("MMCDXLIV", 2444)]
         [InlineData("MMMCMXCIX", 3999)]
-        public void ToInt_ConstructedWithValidString_ReturnsExpectedRomanNumeral(string value, int expectedInteger)
+        public void ToInt_ConstructedWithValidString_ReturnsExpectedInteger(string value, int expectedInteger)
         {
             var romanNumeral = new RomanNumeral(value);
             Assert.Equal(expectedInteger, romanNumeral.ToInt());
