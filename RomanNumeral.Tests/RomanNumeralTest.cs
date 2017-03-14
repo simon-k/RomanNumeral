@@ -18,12 +18,6 @@ namespace RomanNumeral.Tests
             Assert.Contains(expectedMessage, exception.Message);
         }
 
-        [Fact]
-        public void StringConstructor_IsNotImplemented()
-        {
-            Assert.Throws<NotImplementedException>(() => new RomanNumeral(""));
-        }
-
         [Theory]
         [InlineData(1)]
         [InlineData(3999)]
@@ -45,6 +39,18 @@ namespace RomanNumeral.Tests
         {
             var romanNumeral = new RomanNumeral(value);
             Assert.Equal(expectedRomanNumeral, romanNumeral.ToRomanNumeral());
+        }
+
+        [Theory]
+        [InlineData("I", 1)]
+        [InlineData("XC", 90)]
+        [InlineData("MCMXCIX", 1999)]
+        [InlineData("MMCDXLIV", 2444)]
+        [InlineData("MMMCMXCIX", 3999)]
+        public void ToInt_ConstructedWithValidString_ReturnsExpectedRomanNumeral(string value, int expectedInteger)
+        {
+            var romanNumeral = new RomanNumeral(value);
+            Assert.Equal(expectedInteger, romanNumeral.ToInt());
         }
     }
 }

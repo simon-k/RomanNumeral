@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RomanNumeral
@@ -31,6 +32,29 @@ namespace RomanNumeral
                 return highestElement.Value;
             }
             return highestElement.Value + ToRomanNumeral(remainder);
+        }
+
+        public static int ToInt(string value)
+        {
+            var highestElement = GetHighestElementByRomanNumeral(value);
+            var remainder = value.Remove(0, highestElement.Value.Length);
+            if (remainder.Length <= 0)
+            {
+                return highestElement.Key;
+            }
+            return highestElement.Key + ToInt(remainder);
+        }
+
+        private static KeyValuePair<int, string> GetHighestElementByRomanNumeral(string value)
+        {
+            return RomanNumeralTable.Last(x => {
+                if (value.Length >= 2)
+                {
+                    return x.Value == value.Substring(0, 2) || x.Value == value.Substring(0, 1);
+                }
+                return x.Value == value.Substring(0, 1);
+                }
+             );
         }
     }
 }

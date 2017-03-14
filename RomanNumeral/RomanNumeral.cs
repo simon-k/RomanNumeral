@@ -20,7 +20,7 @@ namespace RomanNumeral
 
         public RomanNumeral(string value)
         {
-            throw new NotImplementedException();
+            _value = Converter.ToInt(value);
         }
 
         public int ToInt()
