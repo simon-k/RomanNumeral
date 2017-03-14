@@ -24,7 +24,7 @@ namespace RomanNumeral
 
         public static string ToRomanNumeral(int value)
         {
-            var highestElement = RomanNumeralTable.LastOrDefault(x => x.Key <= value);
+            var highestElement = GetHighestElementByDecimal(value);
             var remainder = value - highestElement.Key;
             if (remainder <= 0)
             {
@@ -44,16 +44,21 @@ namespace RomanNumeral
             return highestElement.Key + ToInt(remainder);
         }
 
+        private static KeyValuePair<int, string> GetHighestElementByDecimal(int value)
+        {
+            return RomanNumeralTable.LastOrDefault(x => x.Key <= value);
+        }
+
         private static KeyValuePair<int, string> GetHighestElementByRomanNumeral(string value)
         {
-            return RomanNumeralTable.Last(x => {
+            return RomanNumeralTable.Last(x =>
+            {
                 if (value.Length >= 2)
                 {
                     return x.Value == value.Substring(0, 2) || x.Value == value.Substring(0, 1);
                 }
                 return x.Value == value.Substring(0, 1);
-                }
-             );
+            });
         }
     }
 }
