@@ -35,6 +35,16 @@ namespace RomanNumeral.Tests
             Assert.Equal(expectedValue, actualValue);
         }
 
-
+        [Theory]
+        [InlineData(1, "I")]
+        [InlineData(90, "XC")]
+        [InlineData(1999, "MCMXCIX")]
+        [InlineData(2444, "MMCDXLIV")]
+        [InlineData(3999, "MMMCMXCIX")]
+        public void ToRomanNumeral_ConstructedWithValudInteger_ReturnsExpectedRomanNumeral(int value, string expectedRomanNumeral)
+        {
+            var romanNumeral = new RomanNumeral(value);
+            Assert.Equal(expectedRomanNumeral, romanNumeral.ToRomanNumeral());
+        }
     }
 }

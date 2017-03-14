@@ -28,6 +28,11 @@ namespace RomanNumeral
             return _value;
         }
 
+        public string ToRomanNumeral()
+        {
+            return Converter.ToRomanNumeral(_value);
+        }
+
         private bool IsValueOutOfRange(int value)
         {
             return (value < MinValue) || (value > MaxValue);
