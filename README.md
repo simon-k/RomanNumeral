@@ -23,5 +23,6 @@ Console.Writeline(numberTwo.ToInt())	//1999
 - Validate that the input in RomanNumeral.Converter.ToRomanNumeral(int) is valid
 - Validate that the input in RomanNumeral.Converter.ToInt(string) is valid
 - Catch exception when reminders in RomanNumeral.Converter are < 0
+- Throw ArgumentOutOfRange instead of InvalidOperationException when constructing RomanNumeral with an invalid string
 - Add math operators so two RomanNumerals can be added, subtracted, multiplied or divided 
 - Implement IComparable and IEquatable

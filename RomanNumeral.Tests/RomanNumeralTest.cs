@@ -19,6 +19,13 @@ namespace RomanNumeral.Tests
         }
 
         [Theory]
+        [InlineData("abcdefx")]
+        public void StringConstructor_ThrowsExceptionIfConstructedWithIllegalValues(string illegalValue)
+        {
+            var exception = Assert.Throws<InvalidOperationException>(() => new RomanNumeral(illegalValue));
+        }
+
+        [Theory]
         [InlineData(1)]
         [InlineData(3999)]
         public void ToInt_ConstructedWithValidInteger_ReturnsIntegerValue(int expectedValue)
