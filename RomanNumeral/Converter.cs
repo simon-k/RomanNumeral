@@ -46,7 +46,7 @@ namespace RomanNumeral
 
         private static KeyValuePair<int, string> GetHighestElementByDecimal(int value)
         {
-            return RomanNumeralTable.LastOrDefault(x => x.Key <= value);
+            return RomanNumeralTable.Last(x => x.Key <= value);
         }
 
         private static KeyValuePair<int, string> GetHighestElementByRomanNumeral(string value)
